@@ -12,7 +12,7 @@ RSpec.describe ArtistRepository do
     reset_artists_table
   end
 
-  it "" do
+  it "returns the list of artists" do
     repo = ArtistRepository.new
     artists = repo.all
     expect(artists.length).to eq 2
