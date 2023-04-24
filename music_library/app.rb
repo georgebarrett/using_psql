@@ -5,4 +5,6 @@ DatabaseConnection.connect('music_library')
 
 artist_repository = ArtistRepository.new
 
-p artist_repository.all
+artist_repository.all.each do |artist|
+ p artist
+end
