@@ -1,0 +1,29 @@
+SELECT id, title, release_year 
+    FROM albums 
+    WHERE release_year > 1990;
+
+SELECT id, title, release_year 
+    FROM albums 
+    WHERE release_year > 1980 AND release_year <= 1990;
+
+SELECT id, title, release_year 
+    FROM albums 
+    WHERE id = '8' OR id = '10';
+
+SELECT id, title, release_year FROM albums WHERE title = 'Lover';
+
+SELECT title FROM albums WHERE artist_id = 1;
+
+UPDATE albums SET artist_id = ‘5’ WHERE title = ‘Xtal’;
+
+INSERT INTO albums (title, release_year, artist_id) VALUES(‘Xtal’, ‘1992’, ‘9’);
+
+INSERT INTO albums (title, release_year) VALUES(‘Alien’, ‘3010’);
+
+UPDATE albums SET title = 'Sausages', release_year = '2828' WHERE id = 1;
+
+SELECT * FROM albums;
+
+DELETE FROM albums WHERE artist_id = 4;
+
+UPDATE albums SET title = 'Sausages', release_year = '2828' WHERE id = 1;
