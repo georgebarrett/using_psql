@@ -8,7 +8,7 @@ RSpec.describe AlbumRepository do
     connection.exec(seed_sql)
   end
 
-  before(&:each) do
+  before(:each) do
     reset_albums_table
   end
   
