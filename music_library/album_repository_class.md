@@ -120,6 +120,14 @@ class AlbumRepository
 
     # Returns an array of Album objects.
   end
+
+  # select a single album record given its id
+  # id argument is an integer
+  def find(id) 
+    # executes the SQL
+    # SELECT id, title, release_year, artist_id FROM albums WHERE id =$1;
+    # returns a single album object
+  end
 end
 ```
 
@@ -139,21 +147,30 @@ repo = AlbumRepository.new
 
 albums = repo.all
 
-albums = repo.all
 albums.length = 2
 albums.first.id = "1"
 albums.first.name = "Doolittle"
 
 # 2
-# when there are no albums in the DB
+# get single album ('Bossanova')
 
 repo = AlbumRepository.new
 
-albums = repo.all # => []
+albums = repo.find(1)
+album.title # => Bossanova
+album.release_year # => 1990
+album.artist_id # => '1'
 
+# 3
+# get single album ('Surfer Rosa')
 
+repo = AlbumRepository.new
 
-# Add more examples for each method
+albums = repo.find(2)
+album.title # => Surfer Rosa
+album.release_year # => 1988
+album.artist_id # => '1'
+
 ```
 
 Encode this example as a test.
