@@ -17,7 +17,7 @@ I'd like to give a rating to each of the recipes (from 1 to 5).
 ```
 Nouns:
 
-recipes, names, cooking_time, rating
+recipes, name, minutes, rating
 ```
 
 ## 2. Infer the Table Name and Columns
@@ -26,11 +26,11 @@ Put the different nouns in this table. Replace the example with your own nouns.
 
 | Record                | Properties          |
 | --------------------- | ------------------  |
-| recipes               | names, cooking_time, rating
+| recipes               | name, cooking_time, rating
 
 Name of the table (always plural): `recipes` 
 
-Column names: `names`, `cooking_time`, `rating`
+Column names: `name`, `cooking_time`, `rating`
 
 ## 3. Decide the column types.
 
@@ -44,7 +44,7 @@ Remember to **always** have the primary key `id` as a first column. Its type wil
 # EXAMPLE:
 
 id: SERIAL
-names: text
+name: text
 cooking_time: time
 rating: int
 ```
@@ -59,7 +59,7 @@ rating: int
 
 CREATE TABLE recipes (
   id SERIAL PRIMARY KEY,
-  names text,
+  name text,
   cooking_time time,
   rating int
 );
@@ -68,5 +68,5 @@ CREATE TABLE recipes (
 ## 5. Create the table.
 
 ```bash
-psql -h 127.0.0.1 recipies_directory < recipes_table.sql
+psql -h 127.0.0.1 recipes_directory < recipes_table.sql
 ```
