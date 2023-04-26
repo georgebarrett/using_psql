@@ -32,11 +32,11 @@ RSpec.describe AlbumRepository do
     expect(album.artist_id).to eq ('1') 
   end
 
-  xit 'returns a single album Surfer Rosa' do
+  it 'returns a single album Surfer Rosa' do
     repo = AlbumRepository.new
     album = repo.find(2)
 
-    expect(album.tile).to eq ('Surfer Rosa')
+    expect(album.title).to eq ('Surfer Rosa')
     expect(album.release_year).to eq ('1988')
     expect(album.artist_id).to eq ('1') 
   end
