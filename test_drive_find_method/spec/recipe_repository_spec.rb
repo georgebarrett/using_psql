@@ -23,23 +23,23 @@ describe RecipeRepository do
 
   end
 
-  xit 'gets one recipe' do
+  it 'gets one recipe' do
     repo = RecipeRepository.new
     recipes = repo.find(1)
 
-    expect(recipes.first.name).to eq ('Bangers and Mash')
-    expect(recipes.first.cooking_time).to eq (45)
-    expect(recipes.first.rating).to eq (4)
+    expect(recipes.name).to eq ('Bangers and Mash')
+    expect(recipes.cooking_time).to eq (45).to_i
+    expect(recipes.rating).to eq (4).to_i
 
   end
 
-  xit 'gets one recipe' do
+  it 'gets one recipe' do
     repo = RecipeRepository.new
     recipes = repo.find(2)
 
-    expect(recipes.first.name).to eq ('Fish and Chips')
-    expect(recipes.first.cooking_time).to eq (30)
-    expect(recipes.first.rating).to eq (5)
+    expect(recipes.name).to eq ('Fish and Chips')
+    expect(recipes.cooking_time).to eq (30).to_i
+    expect(recipes.rating).to eq (5).to_i
 
   end
 end 
