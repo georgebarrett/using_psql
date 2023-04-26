@@ -152,13 +152,13 @@ albums.first.id = "1"
 albums.first.name = "Doolittle"
 
 # 2
-# get single album ('Bossanova')
+# get single album ('Doolittle')
 
 repo = AlbumRepository.new
 
 albums = repo.find(1)
-album.title # => Bossanova
-album.release_year # => 1990
+album.title # => Doolittle
+album.release_year # => 1989
 album.artist_id # => '1'
 
 # 3
