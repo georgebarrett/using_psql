@@ -17,7 +17,7 @@ I'd like to give a rating to each of the recipes (from 1 to 5).
 ```
 Nouns:
 
-recipes, name, minutes, rating
+recipes, name, cooking_time, rating
 ```
 
 ## 2. Infer the Table Name and Columns
@@ -45,7 +45,7 @@ Remember to **always** have the primary key `id` as a first column. Its type wil
 
 id: SERIAL
 name: text
-cooking_time: time
+cooking_time: int
 rating: int
 ```
 
@@ -60,7 +60,7 @@ rating: int
 CREATE TABLE recipes (
   id SERIAL PRIMARY KEY,
   name text,
-  cooking_time time,
+  cooking_time int,
   rating int
 );
 ```
