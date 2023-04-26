@@ -13,13 +13,13 @@ DatabaseConnection.connect('recipes_directory')
 recipe_repository = RecipeRepository.new
 
 
-# recipe_repository.all.each do |recipe|
-#  p recipe
-# end
+recipe_repository.all.each do |recipe|
+ p "id: #{recipe.id}, name: #{recipe.name}, cooking time: #{recipe.cooking_time} minutes, rating: #{recipe.rating} out of 5"
+end
 
-recipe = recipe_repository.find(1)
+# recipe = recipe_repository.find(1)
 
-puts recipe.id
-puts recipe.name
-puts recipe.cooking_time
-puts recipe.rating
+# puts recipe.id
+# puts recipe.name
+# puts recipe.cooking_time
+# puts recipe.rating
