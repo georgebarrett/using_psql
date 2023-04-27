@@ -8,12 +8,9 @@ class AlbumRepository
     sql = 'SELECT id, title, release_year, artist_id FROM albums;'
     result_set = DatabaseConnection.exec_params(sql, [])
 
-    result_set.each do |record|
-      
+    result_set.each do |record|   
       album = Album.new
-
       albums << record_to_album_object(record)
-
     end
     return albums
   end
