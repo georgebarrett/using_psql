@@ -12,12 +12,7 @@ class AlbumRepository
       
       album = Album.new
 
-      album.id = record['id'].to_i
-      album.title = record['title']
-      album.release_year = record['release_year'].to_i
-      album.artist_id = record['artist_id'].to_i
-
-      albums << album
+      albums << record_to_album_object(record)
 
     end
     return albums
@@ -29,13 +24,7 @@ class AlbumRepository
     result = DatabaseConnection.exec_params(sql, sql_params)
     record = result[0]
 
-    album = Album.new
-    album.id = record['id'].to_i
-    album.title = record['title']
-    album.release_year = record['release_year'].to_i
-    album.artist_id = record['artist_id'].to_i
-
-    return album
+    return record_to_album_object(record)
   end
 
   def create(album)
@@ -45,4 +34,18 @@ class AlbumRepository
 
     return nil
   end
+
+  private
+
+  def record_to_album_object(record)
+    album = Album.new
+    
+    album.id = record['id'].to_i
+    album.title = record['title']
+    album.release_year = record['release_year'].to_i
+    album.artist_id = record['artist_id'].to_i
+
+    return album
+  end
+
 end
