@@ -12,10 +12,10 @@ class AlbumRepository
       
       album = Album.new
 
-      album.id = record['id']
+      album.id = record['id'].to_i
       album.title = record['title']
-      album.release_year = record['release_year']
-      album.artist_id = record['artist_id']
+      album.release_year = record['release_year'].to_i
+      album.artist_id = record['artist_id'].to_i
 
       albums << album
 
@@ -30,11 +30,19 @@ class AlbumRepository
     record = result[0]
 
     album = Album.new
-    album.id = ['1']
+    album.id = ['id']
     album.title = record['title']
-    album.release_year = record['release_year']
-    album.artist_id = record['artist_id']
+    album.release_year = record['release_year'].to_i
+    album.artist_id = record['artist_id'].to_i
 
     return album
+  end
+
+  def create(album)
+    sql = 'INSERT INTO albums (title, release_year, artist_id) VALUES($1, $2, $3)'
+    sql_params = [album.title, album.release_year, album.artist_id]
+    result = DatabaseConnection.exec_params(sql, sql_params)
+
+    return nil
   end
 end
