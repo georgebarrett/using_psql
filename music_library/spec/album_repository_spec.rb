@@ -61,6 +61,19 @@ RSpec.describe AlbumRepository do
         artist_id: 9  
       )
     )
-
   end
+
+  it 'deletes album with id of 1' do
+    
+    repo = AlbumRepository.new
+
+    id_to_delete = 1
+
+    repo.delete(id_to_delete)
+
+    all_albums = repo.all
+    expect(all_albums.length).to eq (1)
+    expect(all_albums.first.id).to eq (2)
+  end
+
 end
