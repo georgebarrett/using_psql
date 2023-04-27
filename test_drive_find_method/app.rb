@@ -14,7 +14,7 @@ recipe_repository = RecipeRepository.new
 
 
 recipe_repository.all.each do |recipe|
- p "id: #{recipe.id}, name: #{recipe.name}, cooking time: #{recipe.cooking_time} minutes, rating: #{recipe.rating} out of 5"
+ p "id: #{recipe.id}, name: #{recipe.name}, cooking time: #{recipe.cooking_time} minutes, rating: #{recipe.rating} out of 5 "
 end
 
 # recipe = recipe_repository.find(1)
