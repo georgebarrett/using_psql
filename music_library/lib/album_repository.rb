@@ -30,7 +30,7 @@ class AlbumRepository
     record = result[0]
 
     album = Album.new
-    album.id = ['id']
+    album.id = record['id'].to_i
     album.title = record['title']
     album.release_year = record['release_year'].to_i
     album.artist_id = record['artist_id'].to_i
