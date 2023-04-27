@@ -128,6 +128,15 @@ class AlbumRepository
     # SELECT id, title, release_year, artist_id FROM albums WHERE id =$1;
     # returns a single album object
   end
+
+  # inserting a new album
+  # album is a new album object
+  def create(album)
+    # INSERT INTO albums (title, release_year, artist_id) VALES($1, $2, $3)
+
+    # returns nothing
+  end
+
 end
 ```
 
@@ -170,6 +179,21 @@ albums = repo.find(2)
 album.title # => Surfer Rosa
 album.release_year # => 1988
 album.artist_id # => '1'
+
+# 4
+# insert a new album
+repo = AlbumRepository.new
+
+album = Album.new
+album.title = 'Syro'
+album.release_year = 2012
+album.artist_id = 9
+
+repo.create(album)
+
+# all albums should contain the new album
+all_albums = repo.all
+
 
 ```
 
