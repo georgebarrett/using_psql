@@ -137,6 +137,24 @@ class AlbumRepository
     # returns nothing
   end
 
+  # deletes an album
+  # takes an id as an object argument
+  def delete(id)
+    # sql
+    # DELETE FROM albums WHERE id = $1;
+
+    # returns nothing
+  end
+
+  # updates an album
+  # takes an album as the object argument 
+  def update(album)
+    # sql
+    # UPDATE albums SET title = $1, release_year = $2, artist_id = $3 WHERE id = $4
+
+    # returns nothing
+  end
+
 end
 ```
 
@@ -194,6 +212,10 @@ repo.create(album)
 # all albums should contain the new album
 all_albums = repo.all
 
+last_album = albums.last
+last_album.name = 'Syro'
+last_album.release_year = 2012
+last_album.artist.id = 9
 
 ```
 
