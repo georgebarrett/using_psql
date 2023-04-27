@@ -217,6 +217,19 @@ last_album.name = 'Syro'
 last_album.release_year = 2012
 last_album.artist.id = 9
 
+# 5 
+# delete album
+
+repo = AlbumRepository.new
+
+id_to_delete = 1
+
+repo.delete(id_to_delete)
+
+all_albums = repo.all
+all_albums.length # => 1 (the seeds start the database with two)
+all_albums.first.id # => 2
+
 ```
 
 Encode this example as a test.
