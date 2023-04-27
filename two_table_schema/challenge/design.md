@@ -112,23 +112,24 @@ foreign key is on posts (author_id)
 -- Replace the table name, columm names and types.
 
 -- Create the table without the foreign key first.
-CREATE TABLE comments (
+CREATE TABLE author (
   id SERIAL PRIMARY KEY,
   comment_content text,
   author_name text
 );
 
 -- Then the table with the foreign key first.
-CREATE TABLE posts (
+CREATE TABLE my_posts (
   id SERIAL PRIMARY KEY,
   title text,
-  comment text
+  comment text,
 -- The foreign key name is always {other_table_singular}_id
   author_id int,
-  constraint fk_cohort foreign key(cohort_id)
-    references cohorts(id)
+  constraint fk_author foreign key(author_id)
+    references author(id)
     on delete cascade
 );
+
 
 ```
 
