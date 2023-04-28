@@ -76,7 +76,7 @@ describe AccountRepository do
     expect(all_accounts.first.id).to eq 2
   end
 
-  it "deletes more than one account" do
+  it 'deletes more than one account' do
     repo = AccountRepository.new
 
     repo.delete(1)
@@ -84,6 +84,22 @@ describe AccountRepository do
 
     all_accounts = repo.all
     expect(all_accounts.length).to eq (0)
+  end
+
+  it 'updates every value of an account' do
+  
+    repo = AccountRepository.new
+
+    account = repo.find(1)
+    account.user_name = 'something'
+    account.email = 'something@gmail.com'
+
+    repo.update(account)
+
+    updated_account = repo.find(1)
+    expect(updated_account.user_name).to eq 'something'
+    expect(updated_account.email).to eq 'something@gmail.com'
+  
   end
 
 end
