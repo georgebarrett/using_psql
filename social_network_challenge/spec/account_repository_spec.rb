@@ -76,4 +76,14 @@ describe AccountRepository do
     expect(all_accounts.first.id).to eq 2
   end
 
+  it "deletes more than one account" do
+    repo = AccountRepository.new
+
+    repo.delete(1)
+    repo.delete(2)
+
+    all_accounts = repo.all
+    expect(all_accounts.length).to eq (0)
+  end
+
 end
