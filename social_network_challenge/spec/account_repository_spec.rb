@@ -33,5 +33,16 @@ describe AccountRepository do
   
   end
 
+  it "gets the details of a different single account" do
+  
+    repo = AccountRepository.new
+
+    accounts = repo.find(2)
+
+    expect(accounts.user_name).to eq 'Aphra'
+    expect(accounts.email).to eq 'aphra@gmail.com'
+  
+  end
+
 end
 
