@@ -296,7 +296,7 @@ This is so you get a fresh table contents every time you run the test suite.
 ```ruby
 # EXAMPLE
 
-# file: spec/album_repository_spec.rb
+# file: spec/post_repository_spec.rb
 
 def reset_posts_table
   seed_sql = File.read('spec/seeds_posts.sql')
