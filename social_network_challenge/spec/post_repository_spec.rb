@@ -92,4 +92,38 @@ describe PostRepository do
     expect(all_posts.length).to eq (0)
   end
 
+  it 'updates an entire post' do
+    repo = PostRepository.new
+
+      post = repo.find(1)
+      post.title = 'something'
+      post.content = 'something something what'
+      post.number_of_views = 6
+      post.account_id = 1
+
+      repo.update(post)
+
+      updated_post = repo.find(1)
+      updated_post.title = 'something'
+      updated_post.content = 'something something what'
+      updated_post.number_of_views = 6
+      updated_post.account_id = 1
+  end
+
+  it 'updates a single value in a post' do
+    repo = PostRepository.new
+
+    post = repo.find(1)
+    post.title = 'something'
+
+    repo.update(post)
+
+    updated_post = repo.find(1)
+
+    expect(updated_post.title).to eq 'something'
+    expect(updated_post.content).to eq 'blah blah'
+    expect(updated_post.number_of_views).to eq 3
+    expect(updated_post.account_id).to eq 1
+  end
+
 end
