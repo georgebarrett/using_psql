@@ -24,4 +24,17 @@ describe PostRepository do
     expect(posts.first.account_id).to eq 1
   end
 
+  it 'gets a single post' do
+  
+    repo = PostRepository.new
+
+      posts = repo.find(1)
+
+      expect(posts.title).to eq 'Hola'
+      expect(posts.content).to eq 'blah blah'
+      expect(posts.number_of_views).to eq 3
+      expect(posts.account_id).to eq 1
+  
+  end
+
 end

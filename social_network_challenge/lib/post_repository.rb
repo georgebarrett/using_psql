@@ -12,6 +12,15 @@ class PostRepository
       posts << record_to_post_object(record)
     end
     p posts
+  end
+
+  def find(id)
+    sql = 'SELECT id, title, content, number_of_views, account_id FROM posts WHERE id =$1;'
+    sql_params = [id]
+    result = DatabaseConnection.exec_params(sql, sql_params)
+    record = result[0]
+
+    return record_to_post_object(record)
 
   end
 
