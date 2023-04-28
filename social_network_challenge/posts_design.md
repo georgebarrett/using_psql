@@ -182,28 +182,26 @@ post.first.account_id = 1
 
 # get single post 
 
-repo = AccountRepository.new
+repo = PostRepository.new
 
 posts = repo.find(1)
 
-posts.first.id = 1
-post.first.title = 'Hola'
-post.first.content = 'blah blah'
-post.first.number_of_views = 3
-post.first.account_id = 1
+posts.title = 'Hola'
+posts.content = 'blah blah'
+posts.number_of_views = 3
+posts.account_id = 1
 
 
 # get a different single account ('Aphra')
 
-repo = AccountRepository.new
+repo = PostRepository.new
 
-accounts = repo.find(2)
+posts = repo.find(2)
 
-posts.first.id = 1
-post.first.title = 'Mundo'
-post.first.content = 'meh meh'
-post.first.number_of_views = 2
-post.first.account_id = 2
+posts.title = 'Mundo'
+posts.content = 'meh meh'
+posts.number_of_views = 2
+posts.account_id = 2
 
 
 # insert a new account
