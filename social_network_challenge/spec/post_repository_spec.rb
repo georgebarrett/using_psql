@@ -70,4 +70,16 @@ describe PostRepository do
     )  
   end
 
+  it 'deletes a post' do
+    repo = PostRepository.new
+
+    id_to_delete = 1
+
+    repo.delete(id_to_delete)
+
+    all_posts = repo.all
+    expect(all_posts.length).to eq 1 
+    expect(all_posts.first.id).to eq 2
+  end
+
 end
