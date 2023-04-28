@@ -47,7 +47,7 @@ INSERT INTO accounts (user_name, email) VALUES ('Aphra', 'aphra@gmail.com');
 Run this SQL file on the database to truncate (empty) the table, and insert the seed data. Be mindful of the fact any existing records in the table will be deleted.
 
 ```bash
-psql -h 127.0.0.1 your_database_name < seeds_{table_name}.sql
+psql -h 127.0.0.1 social_network_test < seeds_accounts.sql
 ```
 
 ## 3. Define the class names
