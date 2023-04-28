@@ -150,7 +150,7 @@ class PostRepository
   # takes post as the object argument 
   def update(post)
     # sql
-    # UPDATE posts SET title = $1, content = $2, number_of_views = $3, account_id = $4 WHERE id = $5
+    # UPDATE posts SET title = $1, content = $2, number_of_views = $3, account_id = $4 WHERE id = $5;
 
     # returns nothing
   end
