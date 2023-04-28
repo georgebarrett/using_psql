@@ -30,6 +30,14 @@ class AccountRepository
     return record_to_acount_object(record)
   end
 
+  def create(account)
+    sql = 'INSERT INTO accounts (user_name, email) VALUES($1, $2);'
+    sql_params = [account.user_name, account.email]
+    result = DatabaseConnection.exec_params(sql, sql_params)
+
+    return nil
+  end
+
   private
 
   def record_to_acount_object(record)

@@ -33,7 +33,7 @@ describe AccountRepository do
   
   end
 
-  it "gets the details of a different single account" do
+  it 'gets the details of a different single account' do
   
     repo = AccountRepository.new
 
@@ -44,5 +44,24 @@ describe AccountRepository do
   
   end
 
-end
+  it 'creates a new account' do
+  
+    repo = AccountRepository.new
 
+    new_account = Account.new
+    new_account.user_name = 'Nathan'
+    new_account.email = 'nathan@gmail.com'
+
+    repo.create(new_account)
+
+    all_accounts = repo.all
+
+    expect(all_accounts).to include(
+      have_attributes(
+        user_name: 'Nathan', 
+        email: 'nathan@gmail.com'
+      )
+    )  
+  end
+
+end
