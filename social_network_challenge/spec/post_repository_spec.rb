@@ -25,7 +25,6 @@ describe PostRepository do
   end
 
   it 'gets a single post' do
-  
     repo = PostRepository.new
 
     posts = repo.find(1)
@@ -46,6 +45,29 @@ describe PostRepository do
     expect(posts.content).to eq 'meh meh'
     expect(posts.number_of_views).to eq 2
     expect(posts.account_id).to eq 2
+  end
+
+  it 'creates a new post' do
+    repo = PostRepository.new
+
+    new_post = Post.new
+    new_post.title = 'Autechre'
+    new_post.content = 'Inculabula'
+    new_post.number_of_views = 6
+    new_post.account_id = 1
+
+    repo.create(new_post)
+
+    all_posts = repo.all
+
+    expect(all_posts).to include(
+      have_attributes(
+        title: 'Autechre', 
+        content: 'Inculabula',
+        number_of_views: 6,
+        account_id: 1
+      )
+    )  
   end
 
 end

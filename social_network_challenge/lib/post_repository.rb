@@ -11,7 +11,7 @@ class PostRepository
     result_set.each do |record|   
       posts << record_to_post_object(record)
     end
-    p posts
+    return posts
   end
 
   def find(id)
@@ -21,7 +21,14 @@ class PostRepository
     record = result[0]
 
     return record_to_post_object(record)
+  end
 
+  def create(post)
+    sql = 'INSERT INTO posts (title, content, number_of_views, account_id) VALUES($1, $2, $3, $4);'
+    sql_params = [post.title, post.content, post.number_of_views, post.account_id]
+    result = DatabaseConnection.exec_params(sql, sql_params)
+
+    return nil
   end
 
   private
