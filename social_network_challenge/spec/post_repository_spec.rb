@@ -28,13 +28,24 @@ describe PostRepository do
   
     repo = PostRepository.new
 
-      posts = repo.find(1)
+    posts = repo.find(1)
 
-      expect(posts.title).to eq 'Hola'
-      expect(posts.content).to eq 'blah blah'
-      expect(posts.number_of_views).to eq 3
-      expect(posts.account_id).to eq 1
+    expect(posts.title).to eq 'Hola'
+    expect(posts.content).to eq 'blah blah'
+    expect(posts.number_of_views).to eq 3
+    expect(posts.account_id).to eq 1
   
+  end
+
+  it 'gets a different post' do
+    repo = PostRepository.new
+
+    posts = repo.find(2)
+
+    expect(posts.title).to eq 'Mundo'
+    expect(posts.content).to eq 'meh meh'
+    expect(posts.number_of_views).to eq 2
+    expect(posts.account_id).to eq 2
   end
 
 end
