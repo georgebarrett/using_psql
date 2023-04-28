@@ -102,4 +102,18 @@ describe AccountRepository do
   
   end
 
+  it 'updates a single account value' do
+    repo = AccountRepository.new
+
+    account = repo.find(1)
+    account.user_name = 'something'
+
+    repo.update(account)
+
+    updated_account = repo.find(1)
+
+    expect(updated_account.user_name).to eq 'something'
+    expect(updated_account.email).to eq 'george@gmail.com'
+  end
+
 end
