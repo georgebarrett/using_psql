@@ -132,7 +132,7 @@ class PostRepository
   # inserting a new post
   # post is a new post object
   def create(post)
-    # INSERT INTO posts (title, content, number_of_views, account_id) VALES($1, $2, $3, $4)
+    # INSERT INTO posts (title, content, number_of_views, account_id) VALUES($1, $2, $3, $4);
 
     # returns nothing
   end
@@ -204,25 +204,29 @@ posts.number_of_views = 2
 posts.account_id = 2
 
 
-# insert a new account
+# insert a new post
 repo = PostRepository.new
 
-post = Post.new
-post.first.title = 'Escala'
-post.first.content = 'something'
-post.first.number_of_views = 5
-post.first.account_id = 8
+ repo = PostRepository.new
 
+  new_post = Post.new
+  new_post.title = 'Autechre'
+  new_post.content = 'Inculabula'
+  new_post.number_of_views = 6
+  new_post.account_id = 1
 
-repo.create(post)
+  repo.create(new_post)
 
-all_posts = repo.all
+  all_posts = repo.all
 
-last_post = posts.last
-last_post.first.title = 'Escala'
-last_post.first.content = 'something'
-last_post.first.number_of_views = 5
-last_post.first.account_id = 8
+  expect(all_posts).to include(
+    have_attributes(
+      title: 'Autechre', 
+      content: 'Inculabula',
+      number_of_views: 6,
+      account_id: 1
+    )
+  )  
  
 # delete account
 
