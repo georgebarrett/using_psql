@@ -38,6 +38,14 @@ class AccountRepository
     return nil
   end
 
+  def delete(id)
+    sql = 'DELETE FROM accounts WHERE id = $1;'
+    sql_params = [id]
+    result = DatabaseConnection.exec_params(sql, sql_params)
+
+    return nil
+  end
+
   private
 
   def record_to_acount_object(record)
