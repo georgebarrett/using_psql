@@ -11,26 +11,27 @@ describe AccountRepository do
     reset_accounts_table
   end
 
-  it "gets all the accounts" do
+  it 'gets all the accounts' do
     repo = AccountRepository.new
 
     accounts = repo.all
 
     expect(accounts.length).to eq (2)
     expect(accounts.first.id).to eq (1)
-    expect(accounts.first.user_name).to eq ("George")
-    expect(accounts.first.email).to eq ("george@gmail.com")
+    expect(accounts.first.user_name).to eq ('George')
+    expect(accounts.first.email).to eq ('george@gmail.com')
+  end
+
+  it 'gets the details of a single account' do
+  
+    repo = AccountRepository.new
+
+    account = repo.find(1)
+
+    expect(account.user_name).to eq 'George'
+    expect(account.email).to eq 'george@gmail.com'
+  
   end
 
 end
 
-# it 'returns two albums' do
-#   repo = AlbumRepository.new
-#   albums = repo.all
-
-#   albums = repo.all
-#   expect(albums.length).to eq (2)
-#   expect(albums.first.id).to eq (1)
-#   expect(albums.first.title).to eq ('Doolittle')
-#   expect(albums.first.release_year).to eq (1989)
-# end
