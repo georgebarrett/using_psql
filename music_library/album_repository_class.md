@@ -230,6 +230,23 @@ all_albums = repo.all
 all_albums.length # => 1 (the seeds start the database with two)
 all_albums.first.id # => 2
 
+# 6
+# update album
+
+repo = AlbumRepository.new
+
+album = repo.find(1)
+album.title = 'something'
+album.release_year = 2019
+album.artist_id = 3
+
+repo.update(album)
+
+updated_album = repo.find(1)
+updated_album.name = 'something'
+updated_album.release_year = 2019
+updated_album.artist_id = 3
+
 ```
 
 Encode this example as a test.
