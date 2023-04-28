@@ -165,7 +165,6 @@ These examples will later be encoded as RSpec tests.
 ```ruby
 # EXAMPLES
 
-# 1
 # Get all accounts
 
 repo = AccountRepository.new
@@ -176,8 +175,7 @@ accounts.length = 2
 accounts.first.id = "1"
 albums.first.user_name = "George"
 
-# 2
-# get single account ('Doolittle')
+# get single account ('George')
 
 repo = AccountRepository.new
 
@@ -187,8 +185,7 @@ account.user_name # => George
 account.email # => george@gmail.com
 
 
-# 3
-# get single account ('Surfer Rosa')
+# get a different single account ('Aphra')
 
 repo = AccountRepository.new
 
@@ -198,7 +195,6 @@ accounts.user_name # => Aphra
 accounts.email # => aphra@gmail.com
 
 
-# 4
 # insert a new account
 repo = AccountRepository.new
 
@@ -208,14 +204,12 @@ account.email = 'nathan@gmail.com'
 
 repo.create(account)
 
-# all albums should contain the new album
 all_accounts = repo.all
 
 last_account = accounts.last
 last_account.name = 'Nathan'
 last_account.email = 'nathan@gmail.com'
-
-# 5 
+ 
 # delete account
 
 repo = AccountRepository.new
@@ -228,7 +222,15 @@ all_accounts = repo.all
 all_accounts.length # => 1 (the seeds start the database with two)
 all_accounts.first.id # => 2
 
-# 6
+# deletes both accounts
+repo = AccountRepository.new
+
+repo.delete(1)
+repo.delete(2)
+
+all_accounts = repo.all
+expect(all_accounts.length).to eq (0)
+
 # update entire account
 
 repo = AccountRepository.new
@@ -272,7 +274,7 @@ This is so you get a fresh table contents every time you run the test suite.
 
 # file: spec/album_repository_spec.rb
 
-def reset_albums_table
+def reset_accounts_table
   seed_sql = File.read('spec/seeds_accounts.sql')
   connection = PG.connect({ host: '127.0.0.1', dbname: 'social_network_test' })
   connection.exec(seed_sql)
